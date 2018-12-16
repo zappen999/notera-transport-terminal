@@ -2,6 +2,7 @@
   "name": "notera-transport-terminal",
   "version": "0.1.0",
   "description": "Terminal transport for Notera",
+  "keywords": ["logging", "error", "handling", "console", "terminal", "transport", "notera"],
   "main": "src/index.js",
   "scripts": {
     "test": "npx jest",
@@ -10,6 +11,11 @@
   },
   "author": "Johan Kanefur <johan.canefur@gmail.com>",
   "license": "GPL-3.0",
+  "homepage": "https://github.com/zappen999/notera-transport-terminal",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zappen999/notera-transport-terminal.git"
+  },
   "devDependencies": {
     "coveralls": "^3.0.2",
     "jest": "^23.6.0",
