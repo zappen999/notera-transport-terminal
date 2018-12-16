@@ -1,8 +1,16 @@
 {
   "name": "notera-transport-terminal",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Terminal transport for Notera",
-  "keywords": ["logging", "error", "handling", "console", "terminal", "transport", "notera"],
+  "keywords": [
+    "logging",
+    "error",
+    "handling",
+    "console",
+    "terminal",
+    "transport",
+    "notera"
+  ],
   "main": "src/index.js",
   "scripts": {
     "test": "npx jest",
