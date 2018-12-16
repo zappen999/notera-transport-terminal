@@ -1,13 +1,12 @@
 # Notera Terminal Transport
 
 This package provides a customizable terminal transport for the
-[Notera](https://bitbucket.org/zappen999/notera) package. This transport
+[Notera](https://github.com/zappen999/notera) package. This transport
 atomically writes to stdout like console.log, which makes it ideal for
 development purposes.
 
-[
-  ![](https://img.shields.io/bitbucket/pipelines/zappen999/notera-transport-terminal/master.svg)
-](https://bitbucket.org/zappen999/notera-transport-terminal/addon/pipelines/home#!/results/branch/master/page/1)
+[![Build Status](https://travis-ci.org/zappen999/notera-transport-terminal.svg?branch=master)](https://travis-ci.org/zappen999/notera-transport-terminal)
+[![Coverage Status](https://coveralls.io/repos/github/zappen999/notera-transport-terminal/badge.svg?branch=master)](https://coveralls.io/github/zappen999/notera-transport-terminal?branch=master)
 
 ![Notera terminal output](img/output-example.png)
 
