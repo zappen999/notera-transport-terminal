@@ -1,5 +1,5 @@
 /* global describe, test, expect, beforeEach */
-const NoteraTransportTerminal = require('./index')
+const noteraTransportTerminal = require('./index')
 const style = require('ansi-styles')
 
 const STYLE_RESET_CTRL_CHAR = '\u001b'
@@ -46,13 +46,13 @@ beforeEach(() => {
 describe('Options', () => {
   test('should print on single line when singleLine option is true', () => {
     const opts = { singleLine: true, stream }
-    NoteraTransportTerminal(opts)(mockEntry)
+    noteraTransportTerminal(opts)(mockEntry)
     expect(getCharOccurences(stream.read(), '\n')).toEqual(1)
   })
 
   test('should not use styling when styling is turned off', () => {
     const opts = { disableStyle: true, stream }
-    NoteraTransportTerminal(opts)(mockEntry)
+    noteraTransportTerminal(opts)(mockEntry)
     expect(getCharOccurences(stream.read(), STYLE_RESET_CTRL_CHAR)).toEqual(0)
   })
 
@@ -63,7 +63,7 @@ describe('Options', () => {
         info: 'blue'
       }
     }
-    NoteraTransportTerminal(opts)(mockEntry)
+    noteraTransportTerminal(opts)(mockEntry)
     const expectedString = style.blue.open + ' INFO' + style.blue.close
     expect(isContaining(expectedString, stream.read())).toEqual(true)
   })
@@ -78,8 +78,12 @@ describe('Options', () => {
       }
     }
 
-    NoteraTransportTerminal(opts)(mockEntry)
+    noteraTransportTerminal(opts)(mockEntry)
     expect(stream.read()).toEqual(expect.stringContaining('[SERVER]'))
+  })
+
+  test('should be able to not provide an options-object', () => {
+    noteraTransportTerminal()
   })
 })
 
@@ -92,7 +96,7 @@ describe('Formatting', () => {
       }
     }
 
-    NoteraTransportTerminal(opts)(mockEntry)
+    noteraTransportTerminal(opts)(mockEntry)
     expect(isContaining('SERVER', stream.read())).toEqual(true)
   })
 
@@ -105,7 +109,7 @@ describe('Formatting', () => {
       }
     }
 
-    NoteraTransportTerminal(opts)(mockEntry)
+    noteraTransportTerminal(opts)(mockEntry)
     expect(startsWith(' [SERVER]', stream.read())).toEqual(true)
   })
 
@@ -118,7 +122,7 @@ describe('Formatting', () => {
       }
     }
 
-    NoteraTransportTerminal(opts)(mockEntry)
+    noteraTransportTerminal(opts)(mockEntry)
     expect(stream.read().indexOf('[SERVER]')).toEqual(-1)
   })
 
@@ -137,7 +141,7 @@ describe('Formatting', () => {
       }
     }
 
-    NoteraTransportTerminal(opts)(mockEntry)
+    noteraTransportTerminal(opts)(mockEntry)
   })
 })
 
@@ -152,7 +156,7 @@ describe('Styling', () => {
       }
     }
 
-    NoteraTransportTerminal(opts)(mockEntry)
+    noteraTransportTerminal(opts)(mockEntry)
     const expectedString = style.blue.open + ' [SERVER]' + style.blue.close
     expect(isContaining(expectedString, stream.read())).toEqual(true)
   })
@@ -167,7 +171,7 @@ describe('Styling', () => {
       }
     }
 
-    NoteraTransportTerminal(opts)(mockEntry)
+    noteraTransportTerminal(opts)(mockEntry)
     const expectedString = style.blue.open + ' [SERVER]' + style.blue.close
     expect(isContaining(expectedString, stream.read())).toEqual(true)
   })

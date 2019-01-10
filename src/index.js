@@ -83,7 +83,7 @@ function getOptions (userOpts) {
   return opts
 }
 
-function NoteraTransportTerminal (userOpts) {
+function NoteraTransportTerminal (userOpts = {}) {
   const opts = getOptions(userOpts)
 
   const segmentKeys = Object.keys(opts.segment)
